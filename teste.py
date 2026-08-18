@@ -4,12 +4,15 @@ def tela_inicial():
     print("Jogo de Advinhação")
     print("1 - Jogar")
     print("2 - Sair")
-    try:
-        opcao = int(input("Digite a opção: "))
-        while opcao not in [1,2]:
-            opcao = int(input("(1,2)" ))
-    except:
-        print("Digite apenas números")
+
+    while True:
+        try:
+            opcao = int(input("Digite a opção: "))
+            while opcao not in [1,2]:
+                opcao = int(input("(1,2)" ))
+            break
+        except ValueError:
+            print("Digite apenas números")
 
     return opcao
 
@@ -19,12 +22,18 @@ def menu ():
     print("3 - Dificil")
 
 def escolher_dificuldade():
-    n = int(input("Digite a dificuldade: "))
+    while True:
+        try:
+            n = int(input("Digite a dificuldade: "))
 
-    while n not in [1,2,3]:
-        n = int(input("Digite a dificuldade(1, 2, 3): "))
-    print("------------------------")
+            while n not in [1,2,3]:
+                n = int(input("Digite a dificuldade(1, 2, 3): "))
+            print("------------------------")
+            break
+        except ValueError:
+                    print("Digite apenas números")
     return n
+    
 
 def dificuldades(n):
     if n == 1:
