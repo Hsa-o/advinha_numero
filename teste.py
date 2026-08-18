@@ -1,15 +1,20 @@
 import random
 
-min = int(input("Digite o número min: "))
-max = int(input("Digite o número max: "))
+minimo = int(input("Digite o número minimo: "))
+maximo = int(input("Digite o número maximo: "))
 
-numero_sorteado = random.randint(min, max)
+numero_sorteado = random.randint(minimo, maximo)
 
 tentativa = 0
 
 while True:
+    if tentativa >= 5:
+        print("voce perdeu")
+        break
+    
     numero_digitado = int(input(" "))
     tentativa += 1
+
     if numero_digitado > numero_sorteado:
         print("O número sorteado é menor!")
 
