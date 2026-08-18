@@ -5,6 +5,14 @@ def menu ():
     print("2 - Médio")
     print("3 - Dificil")
 
+def escolher_dificuldade():
+    n = int(input("Digite a dificuldade: "))
+
+    while n not in [1,2,3]:
+        n = int(input("Digite a dificuldade(1, 2, 3): "))
+    print("------------------------")
+    return n
+
 def dificuldades(n):
     if n == 1:
         tentativas = 10
@@ -28,6 +36,7 @@ def dificuldades(n):
 
 def jogar(tentativas, minimo, maximo, numero_sorteado):
     palpite = 0
+    
     while True:
         if palpite == tentativas:
             print("voce perdeu")
@@ -40,7 +49,6 @@ def jogar(tentativas, minimo, maximo, numero_sorteado):
                 print(f"Entre com numeros válidos entre {minimo}-{maximo}")       
                 numero_digitado = int(input("")) 
             palpite += 1
-
             if numero_digitado > numero_sorteado:
                 print("O número sorteado é menor!")
             elif numero_digitado < numero_sorteado:
@@ -49,16 +57,17 @@ def jogar(tentativas, minimo, maximo, numero_sorteado):
                 print("Parabéns, o número sorteado foi: ", numero_sorteado)
                 print(f"Voce conseguiu em {palpite} tentativas")
                 break
+            print(f"Palpite {palpite}!")
+            print("------------------------")
+
         except ValueError:
             print("Entre apenas com números")
 
 
 menu()
 
-n = int(input("Digite a dificuldade: "))
-
-while n not in [1,2,3]:
-    n = int(input("Digite a dificuldade: "))
+n = escolher_dificuldade()
 
 tentativas, minimo, maximo, numero_sorteado = dificuldades(n)
+
 jogar(tentativas, minimo, maximo, numero_sorteado)
