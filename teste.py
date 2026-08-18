@@ -1,5 +1,18 @@
 import random
 
+def tela_inicial():
+    print("Jogo de Advinhação")
+    print("1 - Jogar")
+    print("2 - Sair")
+    try:
+        opcao = int(input("Digite a opção: "))
+        while opcao not in [1,2]:
+            opcao = int(input("(1,2)" ))
+    except:
+        print("Digite apenas números")
+
+    return opcao
+
 def menu ():
     print("1 - Fácil")
     print("2 - Médio")
@@ -63,11 +76,15 @@ def jogar(tentativas, minimo, maximo, numero_sorteado):
         except ValueError:
             print("Entre apenas com números")
 
+while True:
+    opcao = tela_inicial()
+    if opcao == 1:
+        menu()
 
-menu()
+        n = escolher_dificuldade()
 
-n = escolher_dificuldade()
+        tentativas, minimo, maximo, numero_sorteado = dificuldades(n)
 
-tentativas, minimo, maximo, numero_sorteado = dificuldades(n)
-
-jogar(tentativas, minimo, maximo, numero_sorteado)
+        jogar(tentativas, minimo, maximo, numero_sorteado)
+    else:
+        break
