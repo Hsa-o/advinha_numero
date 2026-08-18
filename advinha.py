@@ -36,24 +36,20 @@ def escolher_dificuldade():
     
 
 def dificuldades(n):
+    minimo = 1
+
     if n == 1:
         tentativas = 10
-        minimo = 1
         maximo = 50
-        numero_sorteado = random.randint(minimo, maximo)
-        print(f"{tentativas} tentativas , numeros entre 1-50")
     elif n == 2:
         tentativas = 7
-        minimo = 1
         maximo = 100
-        numero_sorteado = random.randint(minimo, maximo)
-        print(f"{tentativas} tentativas, numeros entre 1-100")
     else:
         tentativas = 5
-        minimo = 1
         maximo = 500
-        numero_sorteado = random.randint(minimo, maximo)
-        print(f"{tentativas} tenativas, numeros entre 1-500")
+    print(f"{tentativas} tentativas , numeros entre {minimo}-{maximo}")
+    numero_sorteado = random.randint(minimo, maximo)
+
     return tentativas, minimo, maximo, numero_sorteado
 
 def jogar(tentativas, minimo, maximo, numero_sorteado):
