@@ -59,22 +59,28 @@ def jogar(tentativas, minimo, maximo, numero_sorteado):
             print("O numero sorteado foi:", numero_sorteado)
             break
 
-        try:
-            numero_digitado = int(input("")) 
-            while numero_digitado < minimo or numero_digitado > maximo:
-                print(f"Entre com numeros válidos entre {minimo}-{maximo}")       
-                numero_digitado = int(input("")) 
-            palpite += 1
-            if numero_digitado > numero_sorteado:
-                print("O número sorteado é menor!")
-            elif numero_digitado < numero_sorteado:
-                print("O número sorteado é maior!")
-            else:
-                print("Parabéns, o número sorteado foi: ", numero_sorteado)
-                print(f"Voce conseguiu em {palpite} tentativas")
-                break
-            print(f"Palpite {palpite}!")
-            print("------------------------")
+        numero_digitado = pedir_numero(minimo, maximo)
+        palpite += 1
+        if numero_digitado > numero_sorteado:
+            print("O número sorteado é menor!")
+        elif numero_digitado < numero_sorteado:
+            print("O número sorteado é maior!")
+        else:
+            print("Parabéns, o número sorteado foi: ", numero_sorteado)
+            print(f"Voce conseguiu em {palpite} tentativas")
+            break
+        print(f"Palpite {palpite}!")
+        print("------------------------")
 
+def pedir_numero(minimo, maximo):
+    while True:
+        try:
+            numero_digitado = int(input(""))
+            if minimo <= numero_digitado <= maximo:
+                return numero_digitado
+
+            print(f"Digite um número entre {minimo} e {maximo}")
+  
         except ValueError:
-            print("Entre apenas com números")
+            print("Digite apenas números!")
+
