@@ -7,9 +7,9 @@ def tela_inicial():
 
     while True:
         try:
-            opcao = int(input("Digite a opção: "))
+            opcao = int(input(""))
             while opcao not in [1,2]:
-                opcao = int(input("(1,2)" ))
+                opcao = int(input("Digite a opção (1,2): " ))
             break
         except ValueError:
             print("Digite apenas números")
@@ -17,6 +17,8 @@ def tela_inicial():
     return opcao
 
 def menu ():
+    print("------------------------")
+    print("Escolha a dificuldade")
     print("1 - Fácil")
     print("2 - Médio")
     print("3 - Dificil")
@@ -24,7 +26,7 @@ def menu ():
 def escolher_dificuldade():
     while True:
         try:
-            n = int(input("Digite a dificuldade: "))
+            n = int(input(""))
 
             while n not in [1,2,3]:
                 n = int(input("Digite a dificuldade(1, 2, 3): "))
@@ -34,7 +36,6 @@ def escolher_dificuldade():
                     print("Digite apenas números")
     return n
     
-
 def dificuldades(n):
     minimo = 1
 
@@ -74,10 +75,11 @@ def jogar(tentativas, minimo, maximo, numero_sorteado):
             else:
                 print("Parabéns, o número sorteado foi: ", numero_sorteado)
                 print(f"Voce conseguiu em {palpite} tentativas")
+                print("------------------------")
                 break
             print(f"Palpite {palpite}!")
             print("------------------------")
-
+            
         except ValueError:
             print("Entre apenas com números")
 
