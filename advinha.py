@@ -1,20 +1,12 @@
 import random
 
 def tela_inicial():
+    print("------------------------")
     print("Jogo de Advinhação")
     print("1 - Jogar")
     print("2 - Sair")
 
-    while True:
-        try:
-            opcao = int(input(""))
-            while opcao not in [1,2]:
-                opcao = int(input("Digite a opção (1,2): " ))
-            break
-        except ValueError:
-            print("Digite apenas números")
-
-    return opcao
+    return pedir_opcao([1, 2])
 
 def menu ():
     print("------------------------")
@@ -24,17 +16,8 @@ def menu ():
     print("3 - Dificil")
 
 def escolher_dificuldade():
-    while True:
-        try:
-            n = int(input(""))
 
-            while n not in [1,2,3]:
-                n = int(input("Digite a dificuldade(1, 2, 3): "))
-            print("------------------------")
-            break
-        except ValueError:
-                    print("Digite apenas números")
-    return n
+    return pedir_opcao([1, 2, 3])
     
 def dificuldades(n):
     minimo = 1
@@ -48,10 +31,24 @@ def dificuldades(n):
     else:
         tentativas = 5
         maximo = 500
+    print("------------------------")
     print(f"{tentativas} tentativas , numeros entre {minimo}-{maximo}")
     numero_sorteado = random.randint(minimo, maximo)
 
     return tentativas, minimo, maximo, numero_sorteado
+
+def pedir_opcao (opcao):
+    while True:
+        try:
+            entrada = int(input(""))
+
+            if entrada in opcao:
+                return entrada
+            print("Escolha uma opção válida!")
+            print("------------------------")
+
+        except ValueError:
+            print("Digite apenas números")
 
 def jogar(tentativas, minimo, maximo, numero_sorteado):
     palpite = 0
@@ -79,7 +76,7 @@ def jogar(tentativas, minimo, maximo, numero_sorteado):
                 break
             print(f"Palpite {palpite}!")
             print("------------------------")
-            
+
         except ValueError:
             print("Entre apenas com números")
 
@@ -94,4 +91,6 @@ while True:
 
         jogar(tentativas, minimo, maximo, numero_sorteado)
     else:
+        print("------------------------")
+        print("Hsa-o")
         break
