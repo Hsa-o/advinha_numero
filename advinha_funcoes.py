@@ -72,7 +72,6 @@ def jogar(tentativas, minimo, maximo, numero_sorteado):
             else:
                 print("Parabéns, o número sorteado foi: ", numero_sorteado)
                 print(f"Voce conseguiu em {palpite} tentativas")
-                print("------------------------")
                 break
             print(f"Palpite {palpite}!")
             print("------------------------")

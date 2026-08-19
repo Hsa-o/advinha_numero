@@ -1,4 +1,4 @@
-import advinha_funcoes
+from advinha_funcoes import tela_inicial, menu, escolher_dificuldade, dificuldades, pedir_opcao, jogar 
 
 while True:
     opcao = tela_inicial()
